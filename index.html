@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Princess Kirana</title>
+    <style>
+        body {
+            background-color: #fff0f6;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 25px;
+            box-shadow: 0 10px 20px rgba(255, 105, 180, 0.2);
+            border: 3px solid #ffb3d9;
+            text-align: center;
+            width: 300px;
+        }
+        h1 { color: #ff3399; font-size: 22px; margin-bottom: 20px; }
+        input {
+            width: 90%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 2px solid #ffd1e8;
+            border-radius: 10px;
+            outline: none;
+            text-align: center;
+            font-size: 16px;
+        }
+        .buttons { display: flex; justify-content: space-around; margin-top: 15px; }
+        button {
+            background-color: #ff66b2;
+            color: white;
+            border: none;
+            padding: 12px 18px;
+            border-radius: 12px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 18px;
+            transition: 0.2s;
+        }
+        button:active { transform: scale(0.9); background-color: #ff3399; }
+        #hasil {
+            margin-top: 25px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff3399;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1>👑 PRINCESS KIRANA 👑</h1>
+        <input type="number" id="a1" placeholder="Angka Pertama">
+        <input type="number" id="a2" placeholder="Angka Kedua">
+        
+        <div class="buttons">
+            <button onclick="hitung('+')">+</button>
+            <button onclick="hitung('-')">-</button>
+            <button onclick="hitung('*')">x</button>
+            <button onclick="hitung('/')">/</button>
+        </div>
+
+        <div id="hasil">Hasil: 0</div>
+    </div>
+
+    <script>
+        function hitung(op) {
+            let v1 = parseFloat(document.getElementById('a1').value);
+            let v2 = parseFloat(document.getElementById('a2').value);
+            let res = 0;
+
+            if (isNaN(v1) || isNaN(v2)) {
+                document.getElementById('hasil').innerText = "Isi angka ya!";
+                return;
+            }
+
+            if (op === '+') res = v1 + v2;
+            if (op === '-') res = v1 - v2;
+            if (op === '*') res = v1 * v2;
+            if (op === '/') res = v1 / v2;
+
+            document.getElementById('hasil').innerText = "Hasil: " + res;
+        }
+    </script>
+</body>
+  </html>
